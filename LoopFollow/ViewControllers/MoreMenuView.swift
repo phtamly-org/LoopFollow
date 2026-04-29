@@ -18,7 +18,6 @@ struct MoreMenuView: View {
             Section {
                 NavigationLink(value: SettingsRoute.settings) {
                     Label("Settings", systemImage: "gearshape")
-                        .foregroundStyle(.primary)
                 }
             }
 
@@ -31,12 +30,12 @@ struct MoreMenuView: View {
                             Observable.shared.selectedTabIndex.value = tabIndex
                         } label: {
                             Label(item.displayName, systemImage: item.icon)
-                                .foregroundStyle(.primary)
                         }
+                        .buttonStyle(.plain)
+                        .contentShape(Rectangle())
                     } else {
                         NavigationLink(value: MenuRoute(item)) {
                             Label(item.displayName, systemImage: item.icon)
-                                .foregroundStyle(.primary)
                         }
                     }
                 }
@@ -46,13 +45,13 @@ struct MoreMenuView: View {
             Section("Logging") {
                 NavigationLink(value: MenuRoute.log) {
                     Label("View Log", systemImage: "doc.text.magnifyingglass")
-                        .foregroundStyle(.primary)
                 }
 
                 Button { shareLogs() } label: {
                     Label("Share Logs", systemImage: "square.and.arrow.up")
-                        .foregroundStyle(.primary)
                 }
+                .buttonStyle(.plain)
+                .contentShape(Rectangle())
             }
 
             // Support & Community
